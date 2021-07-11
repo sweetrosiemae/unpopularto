@@ -15,3 +15,7 @@ function show(){
 function close(){
     mainMenu.style.top = '-120%';
 }
+
+window.addEventListener('load', function () {
+    document.querySelector('body').classList.add("loaded")
+});
