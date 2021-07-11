@@ -1,0 +1,980 @@
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+/* BASIC STYLES */
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1020px;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* POPUP STYLES */
+
+.popUp {
+    display: none;
+}
+
+.active {
+    transform: translate(-50%, -50%);
+    animation: fadeIn ease 0.75s;
+    height: 80vh;
+    width: 80vw;
+    border: solid 5px #e21e26;
+    background-image: url(../ASSETS/popupBackground2.jpg);
+    background-size: cover;
+    background-position: center;
+    /* filter: saturate(60%); */
+    z-index: 20000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+}
+
+.popUp .close {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    right: 10px;
+    top: 10px;
+    padding: 0.45rem;
+    padding-left: 0.7rem;
+    cursor: pointer;
+    transition: all .5s ease;
+    background: #e21e26;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Graduate', cursive;
+}
+
+.unpopularFont {
+    width: 200px;
+    padding-top: 5rem;
+}
+
+.unpopularFont img {
+    width: 100%;
+}
+
+.popUpText {
+    width: 80%;
+    text-align: center;
+    font-family: 'Graduate', cursive;
+    line-height: 2rem;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-top: 25rem;
+    padding-bottom: 2rem;
+}
+
+.popUpText p {
+    padding: 1.5rem;
+}
+
+.popUpText a {
+    text-decoration: none;
+    color: black;
+}
+
+.popUpText a:hover, .popUpText a:focus {
+    text-decoration: underline;
+    color: #e21e26;
+}
+
+/* NAV STYLES */
+
+nav {
+    background: #e21e26;
+    border-bottom: 10px solid black;
+    /* position: fixed; */
+    width: 100%;
+    z-index: 100000;
+    /* animation: fadeIn2 ease 1.4s; */
+}
+
+.mainMenu {
+    display: flex;
+    padding: 1.5rem;
+    list-style-type: none;
+    z-index: 200000;
+}
+
+.mainMenu li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Graduate', cursive;
+    font-weight: 700;
+    color: black;
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+    padding: 2rem;
+}
+
+.strike {
+    position: relative;
+}
+
+.strike::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: 46%;
+    z-index: -1;
+    -webkit-transition: width 0.6s;
+    -moz-transition: width 0.6s;
+    -o-transition: width 0.6s;
+    transition: width 0.6s;
+}
+
+.strike:hover::after {
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+}
+
+.strike2 {
+    position: relative;
+}
+
+.strike2::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: 46%;
+    z-index: -1;
+    -webkit-transition: width 0.6s;
+    -moz-transition: width 0.6s;
+    -o-transition: width 0.6s;
+    transition: width 0.6s;
+}
+
+.strike2:hover::after {
+    width: 80%;
+    position: absolute;
+    z-index: 1000;
+}
+
+nav .openMenu {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+    padding-bottom: 1rem;
+}
+
+nav .closeMenu, 
+.icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+}
+
+nav .closeMenu i:hover,
+nav .openMenu i:hover {
+    color: #EB28C9;
+}
+
+.icons i:hover {
+    color: #EB28C9;
+    font-size: 3rem;
+}
+
+
+.icons i {
+    color: black;
+    font-size: 3rem;
+}
+
+
+/* HEADER STYLES */
+
+header {
+    height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(238, 240, 242, 1)), url(../ASSETS/vlad-gif.gif);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    font-family: 'graduate', cursive;
+    font-size: 5rem;
+}
+
+h3 {
+    font-family: 'roboto', sans-serif;
+    font-size: 3.25rem;
+}
+
+h4 {
+    font-family: 'roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/* LOGO */
+
+.logo {
+    height: 100vh;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    animation: scale 1.5s ease;
+}
+
+.logo img {
+    width: 100%;
+}
+
+/* HEADER SECTION */
+
+.header2 {
+    /* background-image: linear-gradient(to bottom, rgba(118, 119, 122, 0.52), rgba(136, 133, 135, 0.73)), url(../ASSETS/eastYorkBackground.jpg); */
+    background-image: linear-gradient(to bottom, rgba(118, 119, 122, 0.52), rgba(136, 133, 135, 0.73)), url(../ASSETS/amber-and-andre-compressed.gif);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding-top: 20rem;
+    padding-bottom: 15rem;
+}
+
+.headerContainer {
+    display: flex;
+    position: relative;
+    padding-bottom: 15rem;
+}
+
+.headerText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5rem;
+    width: 50%;
+    text-transform: uppercase;
+    color: whitesmoke;
+    position: relative;
+}
+
+.headerFeature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.headerFeature img {
+    width: 100%;
+    box-shadow: 10px 10px #e21e26;
+}
+
+/* SHOP SECTION */
+
+.shopSection {
+    padding-top: 25rem;
+    padding-bottom: 25rem;
+    background-color: #eef0f2;
+}
+
+.smallLogo {
+    width: 100px;
+    padding-bottom: 5rem;
+    animation: boing 4s ease infinite;
+}
+
+.smallLogo img {
+    width: 100%;
+}
+
+.shopSection h3, .comingSoonContainer h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Graduate', cursive;
+    padding-bottom: 2rem;
+}
+
+.shopSection h4 {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+}
+
+.shopGallery, .comingSoonGraphics {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shopGallery img, .comingSoonGraphics img {
+    width: 300px;
+    padding: 1rem;
+}
+
+.shopSectionButton {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+.shopSectionButton a {
+    text-decoration: none;
+    font-family: 'Graduate', cursive;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: black;
+    background: #e21e26;
+    padding: 1.5rem;
+}
+
+/* COMING SOON */
+
+.comingSoon {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+    background-color: #eef0f2;
+    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.52), rgba(136, 133, 135, 0.73)), url(../ASSETS/unpopularBackground.jpg);
+    background-attachment: fixed;
+    background-size: cover; */
+}
+
+.comingSoon h3 {
+    color: black;
+}
+
+.comingSoon h4 {
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    color: black;
+    line-height: 4rem;
+    text-align: center;
+}
+
+/* COUNTDOWN */
+
+#headline {
+    padding-top: 8rem;
+}
+
+.countdownList {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.countdownList li {
+    list-style-type: none;
+    margin: 1rem;
+    padding: 3rem;
+    background-color: #e21e26;
+    color: whitesmoke;
+    font-family: 'Graduate', cursive;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* ARTIST SECTION */
+
+.artistFeature {
+    /* background-color: #eef0f2; */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to bottom, rgba(136, 133, 135, 0.52), rgba(136, 133, 135, 0.73)), url(../ASSETS/unpopularBackground.jpg);
+}
+
+.artistFeature h3 {
+    color: whitesmoke;
+}
+
+.artistContainer {
+    display: flex;
+    padding-top: 25rem;
+    padding-bottom: 20rem;
+}
+
+.artistText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+}
+
+.artistGallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+}
+
+.artistGallery img {
+    padding: 1.5rem;
+    width: 500px;
+    margin: 0;
+}
+
+.artistGallery img:hover {
+    animation: scale2 2s ease-in-out;
+}
+
+@keyframes scale2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* GALLERY */
+
+.galleryContainer {
+    position: relative;
+    height: 40vh;
+    margin-bottom: 5rem;
+}
+
+.gallery {
+    position: absolute;
+    top: 200px;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 90%;
+    max-height: 28vw;
+    overflow: hidden;
+}
+
+.gallery:before, .gallery:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 3;
+}
+
+.gallery:before {
+    left: 0;
+}
+
+.gallery:after {
+    right: 0;
+}
+
+.gallery__stream {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+}
+
+.gallery__item {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    transition: 1s all ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 5px;
+}
+
+.gallery__item:nth-child(1) {
+    left: 0;
+    z-index: 1;
+    transform: translateX(-100%) scale(.8);
+}
+
+.gallery__item:nth-child(2) {
+    left: 0;
+    z-index: 2;
+    transform: translateX(-50%) scale(.8);
+}
+
+.gallery__item:nth-child(3) {
+    left: 50%;
+    z-index: 4;
+    transform: translateX(-50%) scale(1);
+}
+
+.gallery__item:nth-child(4) {
+    left: 100%;
+    z-index: 2;
+    transform: translateX(-50%) scale(.8);
+}
+
+.gallery__item:nth-child(n+5) {
+    left: 100%;
+    z-index: 1;
+    transform: scale(.8);
+}
+
+/* Controllers */
+
+.gallery__prev, .gallery__next {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    width: 50%;
+    height: 100%;
+    transform: translateX(-50%) translateY(-50%) scale(.8);
+    cursor: pointer;
+}
+
+.gallery__prev {
+    left: 0;
+}
+
+.gallery__next {
+    left: 100%;
+}
+
+/* Backgrounds */
+
+.bg-1 {
+    background-image: url(../ASSETS/gallery1.jpg);
+}
+
+.bg-2 {
+    background-image: url(../ASSETS/gallery2.jpg);
+}
+
+.bg-3 {
+    background-image: url(../ASSETS/gallery7.jpg);
+}
+
+.bg-4 {
+    background-image: url(../ASSETS/gallery12.jpg);
+}
+
+.bg-5 {
+    background-image: url(../ASSETS/gallery5.jpg);
+}
+
+.bg-6 {
+    background-image: url(../ASSETS/gallery9.jpg);
+}
+
+.bg-7 {
+    background-image: url(../ASSETS/gallery3.jpg);
+}
+
+.bg-8 {
+    background-image: url(../ASSETS/gallery6.jpg);
+}
+
+/* SOCIAL */
+
+.social,
+.social2 {
+    background-image: linear-gradient(rgba(238, 240, 242, 1), rgba(255, 255, 255, 0.45)), url("../ASSETS/unpopLogo-wrist.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.socialContainer {
+    display: flex;
+    padding: 15rem 0;
+    width: 25%;
+}
+
+.socialContainer i {
+    padding: 1.5rem;
+    font-size: 5rem;
+    color: #e21e26;
+}
+
+.socialContainer a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.socialContainer i:hover {
+    color: black;
+    animation: boing 2s ease;
+}
+
+/* SHOP PAGE */
+
+.shopHeader {
+    height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(238, 240, 242, 1)), url(../ASSETS/amber-andre-gif.gif);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.shopTitleContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.shopTitleContainer h2 {
+    text-transform: uppercase;
+    font-size: 8rem;
+}
+
+.shop h2 {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.classicContainer, .bellwoodsContainer, .eastYorkContainer, .parkdaleContainer {
+    background-color: #eef0f2;
+}
+
+.peekaboo {
+    height: 30vh;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.peekaboo1 {
+    background-image: url(../ASSETS/bellwoodsMap.png);
+}
+
+.peekaboo2 {
+    background-image: url(../ASSETS/eastYorkMap.png);
+}
+
+.peekaboo3 {
+    background-image: url(../ASSETS/parkdaleMap.png);
+}
+
+.howToOrder {
+    text-transform: none;
+    padding-top: 3rem;
+}
+
+/* ARTIST PAGE */
+
+.artistHeader {
+    height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(238, 240, 242, 1)), url(../ASSETS/vlad-divo-gif.gif);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.artistSection {
+    background-color: rgba(238, 240, 242, 1);
+}
+
+.artistPageContainer {
+    padding: 15rem 0;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.artistPageContainer h3,
+.artistPageContainer h4 {
+    color: black;
+}
+
+.artistPageContainer h3 {
+    text-transform: uppercase;
+    font-family: 'graduate', cursive;
+    padding-bottom: 5rem;
+}
+
+.artistPageContainer h4 {
+    text-transform: none;
+    line-height: 2.75rem;
+    text-align: justify;
+}
+
+.artistContent {
+    background-color: rgba(238, 240, 242, 1);
+    background-size: cover;
+}
+
+.artistContent h2 {
+    text-align: center;
+    padding: 10rem 0;
+    font-size: 10rem;
+    text-transform: uppercase;
+}
+
+.artistContent h4 {
+    margin: 10rem 0;
+    text-transform: none;
+    line-height: 3rem;
+
+    padding: 2rem 3rem;
+
+    background-color:#eef0f2;
+}
+
+.artistContent h4 a {
+    text-decoration: none;
+    color: #e21e26;
+}
+
+.artistContent h4 a:hover {
+    color: #8f0b0f;
+}
+
+.divoGif {
+    background-size: cover;
+    background-image: linear-gradient(rgba(238, 240, 242, 1), rgba(49, 46, 46, 0.05)), url("../ASSETS/divo.gif");
+    background-position: top;
+    height: 55vh;
+}
+
+
+
+/* ANIMATIONS */
+
+.hide {
+    opacity: 0;
+}
+
+.scale {
+    animation: scale 3s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes boing {
+    0% {
+        transform: scale3d(0.96, 0.96, 1);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+    40% {
+        transform: scale3d(0.98, 0.98, 1);
+    }
+    60% {
+        transform: scale3d(1.25, 1.25, 1);
+    }
+    80% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(3.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes slide {
+    0% {
+        right: -100px;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes slide {
+    0% {
+        right: -100px;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 975px) {
+    .thirdTee {
+        display: none;
+    }
+
+    .artistGallery img {
+        width: 350px;
+    }
+
+}
+
+@media (max-width: 835px) {
+    .artistContainer {
+        flex-direction: column;
+    }
+
+    .artistGallery {
+        width: 60%;
+    }
+
+    .artistText {
+        width: 55%;
+    }
+
+    .artistText h3 {
+        text-align: justify;
+        padding-top: 2rem;
+        padding-bottom: 5rem;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    /* NAV */
+
+
+    nav .mainMenu {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10000000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #e21e26;
+        transition: top 1s ease;
+        display: none;
+    }
+
+    nav .mainMenu .closeMenu{
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: black;
+    }
+
+    nav .openMenu {
+        display: block;
+    }
+
+    nav i {
+        display: inline-block;
+        padding: 1.5rem;
+        padding-bottom: 0;
+    }
+
+    nav ul li {
+        padding: 3rem;
+    }
+
+    .icons i {
+        display: inline-block;
+        padding: 2rem;
+    }
+
+    .logo {
+        width: 300px;
+        height: 90vh
+    }
+
+    header {
+        height: 90vh;
+    }
+
+    .shopSection {
+        padding-top: 5rem;
+        padding-bottom: 10rem;
+    }
+
+    .headerContainer {
+        flex-direction: column;
+    }
+
+    .headerFeature {
+        display: none;
+    }
+
+    .headerText {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    /* shop page */
+
+
+    /* artist page */
+
+    .shopTitleContainer h2 {
+        font-size: 5rem;
+    }
+
+    .artistPageContainer {
+        padding: 10rem 0;
+        padding-bottom: 3rem;
+    }
+
+
+    .artistPageContainer h3 {
+        text-align: center;
+    }
+
+    .artistPageContainer h4 {
+        text-align: left;
+    }
+    .artistContent h2 {
+        padding: 5rem 0;
+        font-size: 6rem;
+    }
+
+    .artistContent h4 {
+        margin: 2.5rem 0;
+    }
+
+    .divoGif {
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 30vh;
+    }
+}
+
