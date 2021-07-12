@@ -932,6 +932,12 @@ h4 {
     }
 }
 
+@media only screen and (max-width: 768px) {
+    img, iframe {
+        object-fit: cover !important;
+    }
+}
+
 @media (max-width: 500px) {
 
     /* NAV */
