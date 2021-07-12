@@ -934,7 +934,7 @@ h4 {
 
 @media only screen and (max-width: 768px) {
     img, iframe {
-        object-fit: cover !important;
+        object-fit: contain !important;
     }
 }
 
